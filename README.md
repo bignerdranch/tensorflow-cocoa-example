@@ -6,7 +6,11 @@ Inside Google, tensorflow is built with its internal build tool blaze. So, you w
 
 All serialization is done using protocol buffers — the new 3.0 version.
 
-I think that if you have Xcode installed, you can build and run this project.  If you 
+FYI: TensorFlow in 0.10 does not use OpenCL for hardware acceleration (It is on the roadmap, and that will be awesome.)
+
+I think that if you have Xcode installed, you can build and run this project. All you need to do is download [my libtensorflow.so](https://dl.dropboxusercontent.com/u/10818274/libtensorflow.so) which was just too big for github to handle. It should be `tensorflow-cocoa-example/MNIST/libtensorflow.so` (It goes in the directory above the rest of the source.)
+
+However if you want to be able to really work with tensorflow, you'll need to be able to do it in Python. The rest of this document is the install directions that will get it working with Python and Objective-C++ on your Mac.
 
 ## Building tensorflow
 
@@ -163,4 +167,3 @@ Add a new Copy Files Build Phase to copy `libtensorflow.so` into `Frameworks` di
 
 Now build your final release.
 
-FYI: TensorFlow in 0.10 does not use OpenCL for hardware acceleration (is on the roadmap)
