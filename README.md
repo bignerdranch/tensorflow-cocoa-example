@@ -1,11 +1,14 @@
 # tensorflow-cocoa-example
-Using tensorflow inside a desktop Cocoa application
 
 Google did an amazing thing by open-sourcing its tensorflow machine learning framework.  The framework's API is best used from Python, but if you are working in Cocoa, it is much easier to use the C++ API. The C++ API is incomplete and poorly documented. I suspect very few people have ever actually used it.
 
 Inside Google, tensorflow is built with its internal build tool blaze. So, you will need to use its dumbed down brother bazel that Google has also open sourced. bazel uses your CPU like nothing you have ever used before. I can't listen to music on iTunes while bazel is building tensorflow.
 
 All serialization is done using protocol buffers — the new 3.0 version.
+
+# Building tensorflow
+
+You must have Xcode installed.
 
 First install lots of Python packages:
 
@@ -33,12 +36,12 @@ You will also want to build the library to link into your application:
 
 	bazel build //tensorflow:libtensorflow.so
 
-Headers for this library are in `/Library/Python/2.7/site-packages/tensorflow/include/tensorflow/core` but a few are missing, copy from source:
+Headers for this library are in `/Library/Python/2.7/site-packages/tensorflow/include/tensorflow/core` but I think a few are missing. Copy them from the source tree:
 
 	cd tensorflow/core/public
 	sudo cp session.h session_options.h tensor_c_api.h /Library/Python/2.7/site-packages/tensorflow/include/tensorflow/core/public/
 
-So, now when you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.  You'll need to include `tensorflow/bazel-bin/tensorflow` (inside the source directory) in your library search path.
+# Saving tensorflow data from your Python script
 
 Write python script that creates a model and write out as protobuf (NOT text)
 
@@ -52,7 +55,9 @@ If you've trained it in python, also write out the parameter (In this example, I
 
 	save_path = saver.save(sess, "/tmp/parameters.pb")
 
-Now, I know you'd like to create the Variable tensors by reading in the model and then filling them with initial values from the parameters file.  That way, for example, you could keep training the model in your Cocoa application.  YOU CAN'T!
+(I understand that this file is a key-value store where the key is the name of the tensor and the value is the protobuf for that tensor's data. I have not been able to parse this data yet, but there is some C++ API involving `TensorSliceRead` and `TensorSliceWritter` for doing this.)
+
+Now, I know you'd like to create the Variable tensors by reading in the model and then filling them with initial values from the parameters file.  That way, for example, you could keep training the model in your Cocoa application.  YOU CAN'T! (This is an obvious flaw in the C++ API. I hope it will be fixed soon.)
 
 Instead, there is a tool (`freeze_graph`) that replaces the Variable tensors with Constant tensors filled with the data from the parameters file. Build that tool:
 
@@ -64,15 +69,11 @@ Use that tool:
 
 Copy the resulting model (`frozen.pb` in my case) into your project.
 
-You'll need to include libtensorflow.so in your application.  It is a dynamic library, so you'll need to copy it into the app wrapper at compile time.  More importantly, the library has to tell the app where it can be found. I'd copy the libtensorflow.so into your project directory, then change its install path:
+# Using tensorflow from Cocoa
 
-	install_name_tool -id @rpath/libtensorflow.so libtensorflow.so 
+So, now when you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.  (
 
-You can check it like this:
-
-	otool -D libtensorflow.so
-
-Add a new Copy Files Build Phase to copy `libtensorflow.so` into `Frameworks` directory in the app wrapper
+If you copy libtensorflow.so into your project, you'll need to include need to include your project directory in the library search path (something like `$(PROJECT_DIR)/MyApp`) in the library search path.  If you don't copy it in you'll need to include `tensorflow/bazel-bin/tensorflow` (inside the tensor source directory) in your library search path.
 
 In your Cocoa application, read in the graph def and create a new session:
 
@@ -140,5 +141,18 @@ When you want to use the model, pack the data correctly, run the model, and then
         guesses[i] = mappedOutput(0,i);
     }
 
+# Before you ship your Cocoa app
+
+You'll need to include `libtensorflow.so` in your application.  It is a dynamic library, so you'll need to copy it into the app wrapper at compile time.  More importantly, the library has to tell the app where it can be found. I'd copy the libtensorflow.so into your project directory, then change its install path:
+
+	install_name_tool -id @rpath/libtensorflow.so libtensorflow.so 
+
+You can check it like this:
+
+	otool -D libtensorflow.so
+
+Add a new Copy Files Build Phase to copy `libtensorflow.so` into `Frameworks` directory in the app wrapper
+
+Now build your final release.
 
 FYI: TensorFlow in 0.10 does not use OpenCL for hardware acceleration (is on the roadmap)
