@@ -6,7 +6,7 @@ Inside Google, tensorflow is built with its internal build tool blaze. So, you w
 
 All serialization is done using protocol buffers — the new 3.0 version.
 
-# Building tensorflow
+## Building tensorflow
 
 You must have Xcode installed.
 
@@ -33,6 +33,9 @@ Then clone the tensorflow source and build it:
 
 	bazel build -c opt //tensorflow/tools/pip_package:build_pip_package
 	bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
+	sudo pip install /tmp/tensorflow_pkg/tensorflow-0.10.0rc0-py2-none-any.whl
+
+(That last file name will depend on a lot of stuff, but it is something like that.)
 
 You will also want to build the library to link into your application:
 
@@ -43,7 +46,7 @@ Headers for this library are in `/Library/Python/2.7/site-packages/tensorflow/in
 	cd tensorflow/core/public
 	sudo cp session.h session_options.h tensor_c_api.h /Library/Python/2.7/site-packages/tensorflow/include/tensorflow/core/public/
 
-# Saving tensorflow data from your Python script
+## Saving tensorflow data from your Python script
 
 Write python script that creates a model and write out as protobuf (NOT text)
 
@@ -71,7 +74,7 @@ Use that tool:
 
 Copy the resulting model (`frozen.pb` in my case) into your project.
 
-# Using tensorflow from Cocoa
+## Using tensorflow from Cocoa
 
 So, now when you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.  (
 
@@ -143,7 +146,7 @@ When you want to use the model, pack the data correctly, run the model, and then
         guesses[i] = mappedOutput(0,i);
     }
 
-# Before you ship your Cocoa app
+## Before you ship your Cocoa app
 
 You'll need to include `libtensorflow.so` in your application.  It is a dynamic library, so you'll need to copy it into the app wrapper at compile time.  More importantly, the library has to tell the app where it can be found. I'd copy the libtensorflow.so into your project directory, then change its install path:
 
