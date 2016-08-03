@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		93AA47931D4FF2D20065C777 /* frozen.pb in Resources */ = {isa = PBXBuildFile; fileRef = 93AA47921D4FF2D20065C777 /* frozen.pb */; };
+		93AA47961D513FC00065C777 /* libtensorflow.so in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93B34F371D2F0894007E1C71 /* libtensorflow.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		93B34F181D2EDC41007E1C71 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F171D2EDC41007E1C71 /* AppDelegate.mm */; };
+		93B34F1B1D2EDC41007E1C71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F1A1D2EDC41007E1C71 /* main.m */; };
+		93B34F1D1D2EDC41007E1C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F1C1D2EDC41007E1C71 /* Assets.xcassets */; };
+		93B34F201D2EDC41007E1C71 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F1E1D2EDC41007E1C71 /* MainMenu.xib */; };
+		93B34F291D2EDC75007E1C71 /* PixelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F281D2EDC75007E1C71 /* PixelView.m */; };
+		93B34F2D1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F2B1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte */; };
+		93B34F2E1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F2C1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte */; };
+		93B34F311D2EE6EA007E1C71 /* MNISTDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F301D2EE6EA007E1C71 /* MNISTDataSet.m */; };
+		93B34F3A1D2F0894007E1C71 /* libtensorflow.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B34F371D2F0894007E1C71 /* libtensorflow.so */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		93AA47951D513FB40065C777 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				93AA47961D513FC00065C777 /* libtensorflow.so in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		93AA47921D4FF2D20065C777 /* frozen.pb */ = {isa = PBXFileReference; lastKnownFileType = file; name = frozen.pb; path = MNIST/frozen.pb; sourceTree = "<group>"; };
+		93B34F131D2EDC41007E1C71 /* MNIST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNIST.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		93B34F161D2EDC41007E1C71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MNIST/AppDelegate.h; sourceTree = "<group>"; };
+		93B34F171D2EDC41007E1C71 /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = MNIST/AppDelegate.mm; sourceTree = "<group>"; };
+		93B34F1A1D2EDC41007E1C71 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		93B34F1C1D2EDC41007E1C71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		93B34F1F1D2EDC41007E1C71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		93B34F211D2EDC41007E1C71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		93B34F271D2EDC75007E1C71 /* PixelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PixelView.h; path = MNIST/PixelView.h; sourceTree = "<group>"; };
+		93B34F281D2EDC75007E1C71 /* PixelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PixelView.m; path = MNIST/PixelView.m; sourceTree = "<group>"; };
+		93B34F2B1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte */ = {isa = PBXFileReference; lastKnownFileType = file; name = "t10k-images-idx3-ubyte"; path = "MNIST/t10k-images-idx3-ubyte"; sourceTree = "<group>"; };
+		93B34F2C1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte */ = {isa = PBXFileReference; lastKnownFileType = file; name = "t10k-labels-idx1-ubyte"; path = "MNIST/t10k-labels-idx1-ubyte"; sourceTree = "<group>"; };
+		93B34F2F1D2EE6EA007E1C71 /* MNISTDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNISTDataSet.h; path = MNIST/MNISTDataSet.h; sourceTree = "<group>"; };
+		93B34F301D2EE6EA007E1C71 /* MNISTDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNISTDataSet.m; path = MNIST/MNISTDataSet.m; sourceTree = "<group>"; };
+		93B34F371D2F0894007E1C71 /* libtensorflow.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtensorflow.so; path = MNIST/libtensorflow.so; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		93B34F101D2EDC41007E1C71 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93B34F3A1D2F0894007E1C71 /* libtensorflow.so in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93B34F0A1D2EDC41007E1C71 = {
+			isa = PBXGroup;
+			children = (
+				93AA47921D4FF2D20065C777 /* frozen.pb */,
+				93B34F3C1D2F089F007E1C71 /* TensorFlow */,
+				93B34F2A1D2EE690007E1C71 /* Data */,
+				93B34F161D2EDC41007E1C71 /* AppDelegate.h */,
+				93B34F171D2EDC41007E1C71 /* AppDelegate.mm */,
+				93B34F1E1D2EDC41007E1C71 /* MainMenu.xib */,
+				93B34F271D2EDC75007E1C71 /* PixelView.h */,
+				93B34F281D2EDC75007E1C71 /* PixelView.m */,
+				93B34F191D2EDC41007E1C71 /* Supporting Files */,
+				93B34F141D2EDC41007E1C71 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		93B34F141D2EDC41007E1C71 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				93B34F131D2EDC41007E1C71 /* MNIST.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		93B34F191D2EDC41007E1C71 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				93B34F1C1D2EDC41007E1C71 /* Assets.xcassets */,
+				93B34F211D2EDC41007E1C71 /* Info.plist */,
+				93B34F1A1D2EDC41007E1C71 /* main.m */,
+			);
+			name = "Supporting Files";
+			path = MNIST;
+			sourceTree = "<group>";
+		};
+		93B34F2A1D2EE690007E1C71 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				93B34F2B1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte */,
+				93B34F2C1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte */,
+				93B34F2F1D2EE6EA007E1C71 /* MNISTDataSet.h */,
+				93B34F301D2EE6EA007E1C71 /* MNISTDataSet.m */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		93B34F3C1D2F089F007E1C71 /* TensorFlow */ = {
+			isa = PBXGroup;
+			children = (
+				93B34F371D2F0894007E1C71 /* libtensorflow.so */,
+			);
+			name = TensorFlow;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		93B34F121D2EDC41007E1C71 /* MNIST */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93B34F241D2EDC41007E1C71 /* Build configuration list for PBXNativeTarget "MNIST" */;
+			buildPhases = (
+				93B34F0F1D2EDC41007E1C71 /* Sources */,
+				93B34F101D2EDC41007E1C71 /* Frameworks */,
+				93B34F111D2EDC41007E1C71 /* Resources */,
+				93AA47951D513FB40065C777 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MNIST;
+			productName = MNIST;
+			productReference = 93B34F131D2EDC41007E1C71 /* MNIST.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		93B34F0B1D2EDC41007E1C71 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "Big Nerd Ranch";
+				TargetAttributes = {
+					93B34F121D2EDC41007E1C71 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = 93B34F0E1D2EDC41007E1C71 /* Build configuration list for PBXProject "MNIST" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 93B34F0A1D2EDC41007E1C71;
+			productRefGroup = 93B34F141D2EDC41007E1C71 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				93B34F121D2EDC41007E1C71 /* MNIST */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		93B34F111D2EDC41007E1C71 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93B34F2D1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte in Resources */,
+				93B34F1D1D2EDC41007E1C71 /* Assets.xcassets in Resources */,
+				93B34F201D2EDC41007E1C71 /* MainMenu.xib in Resources */,
+				93B34F2E1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte in Resources */,
+				93AA47931D4FF2D20065C777 /* frozen.pb in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		93B34F0F1D2EDC41007E1C71 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93B34F1B1D2EDC41007E1C71 /* main.m in Sources */,
+				93B34F291D2EDC75007E1C71 /* PixelView.m in Sources */,
+				93B34F311D2EE6EA007E1C71 /* MNISTDataSet.m in Sources */,
+				93B34F181D2EDC41007E1C71 /* AppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		93B34F1E1D2EDC41007E1C71 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				93B34F1F1D2EDC41007E1C71 /* Base */,
+			);
+			name = MainMenu.xib;
+			path = MNIST;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		93B34F221D2EDC41007E1C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		93B34F231D2EDC41007E1C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		93B34F251D2EDC41007E1C71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MNIST/include";
+				INFOPLIST_FILE = MNIST/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MNIST",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.MNIST;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		93B34F261D2EDC41007E1C71 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MNIST/include";
+				INFOPLIST_FILE = MNIST/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/MNIST",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.MNIST;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		93B34F0E1D2EDC41007E1C71 /* Build configuration list for PBXProject "MNIST" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93B34F221D2EDC41007E1C71 /* Debug */,
+				93B34F231D2EDC41007E1C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93B34F241D2EDC41007E1C71 /* Build configuration list for PBXNativeTarget "MNIST" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				93B34F251D2EDC41007E1C71 /* Debug */,
+				93B34F261D2EDC41007E1C71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 93B34F0B1D2EDC41007E1C71 /* Project object */;
+}

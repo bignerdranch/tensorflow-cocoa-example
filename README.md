@@ -6,6 +6,8 @@ Inside Google, tensorflow is built with its internal build tool blaze. So, you w
 
 All serialization is done using protocol buffers — the new 3.0 version.
 
+I think that if you have Xcode installed, you can build and run this project.  If you 
+
 ## Building tensorflow
 
 You must have Xcode installed.
@@ -54,6 +56,7 @@ Write python script that creates a model and write out as protobuf (NOT text)
 	tf.train.write_graph(graph_def, '/tmp', 'graphdef.pb', False)
 
 If you've trained it in python, also write out the parameter (In this example, I have two Variable tensors holding the weights and baises. They are called `W` and `b`
+
 	saver = tf.train.Saver([W, b])
 	# Train it
         …
@@ -76,7 +79,7 @@ Copy the resulting model (`frozen.pb` in my case) into your project.
 
 ## Using tensorflow from Cocoa
 
-So, now when you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.  (
+When you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.
 
 If you copy libtensorflow.so into your project, you'll need to include need to include your project directory in the library search path (something like `$(PROJECT_DIR)/MyApp`) in the library search path.  If you don't copy it in you'll need to include `tensorflow/bazel-bin/tensorflow` (inside the tensor source directory) in your library search path.
 
