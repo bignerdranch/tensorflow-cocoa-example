@@ -38,6 +38,8 @@ Headers for this library are in `/Library/Python/2.7/site-packages/tensorflow/in
 	cd tensorflow/core/public
 	sudo cp session.h session_options.h tensor_c_api.h /Library/Python/2.7/site-packages/tensorflow/include/tensorflow/core/public/
 
+So, now when you use `libtensorflow.so`, you will need to include `/Library/Python/2.7/site-packages/tensorflow/include` in your header search path.  You'll need to include `tensorflow/bazel-bin/tensorflow` (inside the source directory) in your library search path.
+
 Write python script that creates a model and write out as protobuf (NOT text)
 
 	graph_def = tf.get_default_graph().as_graph_def()
@@ -71,5 +73,72 @@ You can check it like this:
 	otool -D libtensorflow.so
 
 Add a new Copy Files Build Phase to copy `libtensorflow.so` into `Frameworks` directory in the app wrapper
+
+In your Cocoa application, read in the graph def and create a new session:
+
+    // Find the graph def in the main bundle
+    NSString *graphPath = [[NSBundle mainBundle] pathForResource:@"frozen" ofType:@"pb"];
+    
+    // Read it in
+    Status status = ReadBinaryProto(Env::Default(), [graphPath cStringUsingEncoding:NSUTF8StringEncoding], &graph_def);
+    if (!status.ok()) {
+        NSLog(@"Model reading %@ failed: %s", graphPath, status.error_message().c_str());
+        return;
+    }
+    
+    // List out the nodes (just for fun)
+    int nodeCount = graph_def.node_size();
+    for (int i = 0; i < nodeCount; i++) {
+        const ::tensorflow::NodeDef node = graph_def.node(i);
+        std::string nodeName = node.name();
+        std::string nodeOp = node.op();
+        fprintf(stderr, "Node %d %s \'%s\'\n", i, nodeOp.c_str(), nodeName.c_str());
+    }
+    
+    // Create a session
+    tensorflow::SessionOptions options;
+    session = tensorflow::NewSession(options);
+    
+    // Attached the graph to the session
+    tensorflow::Status s = session->Create(graph_def);
+    if (!s.ok()) {
+        NSLog(@"Error:Couldn't add graph to session");
+        return;
+    }
+
+When you want to use the model, pack the data correctly, run the model, and then unpack it:
+
+    int pixelCount = dataSet.columns * dataSet.rows;
+    TensorShape inShape;
+    inShape.AddDim(1);  // A batch of exactly one image
+    inShape.AddDim(pixelCount);// The image has 784 pixels
+    Tensor inputTensor(DT_FLOAT, inShape); // Model expects floats
+    
+    // Copy the image data into the tensor
+    auto mappedInput = inputTensor.tensor<float, 2>();
+    for (int i = 0; i < pixelCount; i++) {
+        mappedInput(0, i) = im[i]/255.0;
+    }
+    
+    // Create a vector to hold the results
+    std::vector<tensorflow::Tensor> outputs;
+    
+    // Run the data through the model
+    Status s = session->Run({{"pix_in", inputTensor}}, {"normalized_guesses"}, {}, &outputs);
+    if (!s.ok()) {
+        NSLog(@"Error:Couldn't run model: %s", s.error_message().c_str());
+        return;
+    }
+    
+    // Get the only output
+    Tensor outputTensor = outputs[0];
+    
+    // Copy the results into the guesses array
+    auto mappedOutput = outputTensor.tensor<float, 2>();
+    float guesses[10];
+    for (int i = 0; i < 10; i++) {
+        guesses[i] = mappedOutput(0,i);
+    }
+
 
 FYI: TensorFlow in 0.10 does not use OpenCL for hardware acceleration (is on the roadmap)
