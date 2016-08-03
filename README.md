@@ -10,6 +10,8 @@ All serialization is done using protocol buffers — the new 3.0 version.
 
 You must have Xcode installed.
 
+Install [bazel](https://github.com/bazelbuild/bazel/releases)
+
 First install lots of Python packages:
 
 	sudo easy_install -U six
