@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93A7409D1D64B13D001BAB1A /* libtensorflow.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 93A7409C1D64B13D001BAB1A /* libtensorflow.so */; };
 		93AA47931D4FF2D20065C777 /* frozen.pb in Resources */ = {isa = PBXBuildFile; fileRef = 93AA47921D4FF2D20065C777 /* frozen.pb */; };
-		93AA47961D513FC00065C777 /* libtensorflow.so in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93B34F371D2F0894007E1C71 /* libtensorflow.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		93B34F181D2EDC41007E1C71 /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F171D2EDC41007E1C71 /* AppDelegate.mm */; };
 		93B34F1B1D2EDC41007E1C71 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F1A1D2EDC41007E1C71 /* main.m */; };
 		93B34F1D1D2EDC41007E1C71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F1C1D2EDC41007E1C71 /* Assets.xcassets */; };
@@ -17,7 +17,7 @@
 		93B34F2D1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F2B1D2EE6A0007E1C71 /* t10k-images-idx3-ubyte */; };
 		93B34F2E1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte in Resources */ = {isa = PBXBuildFile; fileRef = 93B34F2C1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte */; };
 		93B34F311D2EE6EA007E1C71 /* MNISTDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 93B34F301D2EE6EA007E1C71 /* MNISTDataSet.m */; };
-		93B34F3A1D2F0894007E1C71 /* libtensorflow.so in Frameworks */ = {isa = PBXBuildFile; fileRef = 93B34F371D2F0894007E1C71 /* libtensorflow.so */; };
+		93C040711D81F8300021CC8E /* libtensorflow.so in CopyFiles */ = {isa = PBXBuildFile; fileRef = 93A7409C1D64B13D001BAB1A /* libtensorflow.so */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,13 +27,14 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				93AA47961D513FC00065C777 /* libtensorflow.so in CopyFiles */,
+				93C040711D81F8300021CC8E /* libtensorflow.so in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		93A7409C1D64B13D001BAB1A /* libtensorflow.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libtensorflow.so; sourceTree = "<group>"; };
 		93AA47921D4FF2D20065C777 /* frozen.pb */ = {isa = PBXFileReference; lastKnownFileType = file; name = frozen.pb; path = MNIST/frozen.pb; sourceTree = "<group>"; };
 		93B34F131D2EDC41007E1C71 /* MNIST.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MNIST.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		93B34F161D2EDC41007E1C71 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = MNIST/AppDelegate.h; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		93B34F2C1D2EE6A0007E1C71 /* t10k-labels-idx1-ubyte */ = {isa = PBXFileReference; lastKnownFileType = file; name = "t10k-labels-idx1-ubyte"; path = "MNIST/t10k-labels-idx1-ubyte"; sourceTree = "<group>"; };
 		93B34F2F1D2EE6EA007E1C71 /* MNISTDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MNISTDataSet.h; path = MNIST/MNISTDataSet.h; sourceTree = "<group>"; };
 		93B34F301D2EE6EA007E1C71 /* MNISTDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MNISTDataSet.m; path = MNIST/MNISTDataSet.m; sourceTree = "<group>"; };
-		93B34F371D2F0894007E1C71 /* libtensorflow.so */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libtensorflow.so; path = MNIST/libtensorflow.so; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				93B34F3A1D2F0894007E1C71 /* libtensorflow.so in Frameworks */,
+				93A7409D1D64B13D001BAB1A /* libtensorflow.so in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +112,7 @@
 		93B34F3C1D2F089F007E1C71 /* TensorFlow */ = {
 			isa = PBXGroup;
 			children = (
-				93B34F371D2F0894007E1C71 /* libtensorflow.so */,
+				93A7409C1D64B13D001BAB1A /* libtensorflow.so */,
 			);
 			name = TensorFlow;
 			sourceTree = "<group>";
@@ -144,7 +144,7 @@
 		93B34F0B1D2EDC41007E1C71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Big Nerd Ranch";
 				TargetAttributes = {
 					93B34F121D2EDC41007E1C71 = {
@@ -226,8 +226,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -270,8 +272,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
@@ -298,7 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MNIST/include";
+				HEADER_SEARCH_PATHS = "/Library/Python/2.7/site-packages/tensorflow/include";
 				INFOPLIST_FILE = MNIST/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -316,7 +320,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
-				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MNIST/include";
+				HEADER_SEARCH_PATHS = "/Library/Python/2.7/site-packages/tensorflow/include";
 				INFOPLIST_FILE = MNIST/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				LIBRARY_SEARCH_PATHS = (
